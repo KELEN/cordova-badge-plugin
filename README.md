@@ -2,15 +2,19 @@
 
 ## 基于 [ShortcutBadger] (https://github.com/leolin310148/ShortcutBadger) 封装cordova插件
 
+## 支持机型
+
+![支持机型]()
+
 # 使用
 
 ### 安装
 
-*1. `cordova plugin add 插件路径`
+1. `cordova plugin add 插件路径`
 
-*2. `cordova build`
+2. `cordova build`
 
-*3. 在html页面引入
+3. 在html页面引入
 
 `
 	document.addEventListener("deviceready",function() {
