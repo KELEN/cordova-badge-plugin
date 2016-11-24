@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.hkl.badge"
+    version="0.0.1">
+    <name>BadgePlugin</name>
+    <description>桌面图标数量</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova, badge</keywords>
+    <repo></repo>
+    <issue></issue>
+
+    <js-module src="www/BadgePlugin.js" name="BadgePlugin">
+        <clobbers target="BadgePlugin" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BadgePlugin" >
+                <!-- value 类名的路径包含命名空间 和下面的target-dir路径一样 -->
+                <param name="android-package" value="com.hkl.badge.BadgePlugin"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/BadgePlugin.java" target-dir="src/com/hkl/badge" />
+
+        <source-file src="src/android/shortcutbadger/Badger.java" target-dir="src/me/leolin/shortcutbadger" />
+        <source-file src="src/android/shortcutbadger/ShortcutBadgeException.java" target-dir="src/me/leolin/shortcutbadger" />
+        <source-file src="src/android/shortcutbadger/ShortcutBadger.java" target-dir="src/me/leolin/shortcutbadger" />
+
+        <source-file src="src/android/shortcutbadger/impl/AdwHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/shortcutbadger/impl/ApexHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/shortcutbadger/impl/AsusHomeLauncher.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/shortcutbadger/impl/DefaultBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/shortcutbadger/impl/HuaweiHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/shortcutbadger/impl/LGHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/shortcutbadger/impl/NewHtcHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/shortcutbadger/impl/NovaHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/shortcutbadger/impl/OPPOHomeBader.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/shortcutbadger/impl/SamsungHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/shortcutbadger/impl/SonyHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/shortcutbadger/impl/XiaomiHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+        <source-file src="src/android/shortcutbadger/impl/ZukHomeBadger.java" target-dir="src/me/leolin/shortcutbadger/impl" />
+
+        <source-file src="src/android/shortcutbadger/util/BroadcastHelper.java" target-dir="src/me/leolin/shortcutbadger/util" />
+        <source-file src="src/android/shortcutbadger/util/CloseHelper.java" target-dir="src/me/leolin/shortcutbadger/util" />
+
+        <!-- 资源文件 -->
+	    <config-file target="AndroidManifest.xml" parent="/manifest">
+	    	<!--for Samsung-->
+            <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+            <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+
+            <!--for htc-->
+            <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+            <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+
+            <!--for sony-->
+            <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+            <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+
+            <!--for apex-->
+            <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+
+            <!--for solid-->
+            <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+
+            <!--for huawei-->
+            <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+            <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+            <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+
+            <!--for ZUK-->
+            <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+
+            <!--for OPPO-->
+            <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+            <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+		</config-file>
+
+    </platform>
+
+</plugin>
