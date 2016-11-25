@@ -10,7 +10,7 @@
 
 ### 安装
 
-1. `cordova plugin add 插件路径`
+1. `cordova plugin add https://github.com/leecrossley/cordova-plugin-social-message.git`
 
 2. `cordova build`
 
